@@ -1,3 +1,4 @@
+![file (3)](https://github.com/user-attachments/assets/b999278a-4177-4794-b275-8922271003b4)
 Spring Boot Backend with PostgreSQL, AWS S3, and AI Features
 Welcome to the repository for a robust and feature-rich Spring Boot backend that integrates PostgreSQL, AWS S3, and AI capabilities. This backend is designed to deliver powerful automated features while ensuring scalability and performance.
 
