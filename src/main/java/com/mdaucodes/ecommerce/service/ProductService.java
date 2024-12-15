@@ -40,7 +40,7 @@ public class ProductService {
                 product.getProductDescription(), product.getProductQuantity(), product.isAvailable());
     }
 
-    public List<ProductDTO> fetchProductsByDescriptionOrName(String description) {
+    public List<ProductDTO> fetchProductsByDescriptionContains(String description) {
         return productRepository.findProductsByProductDescriptionContainingIgnoreCase(description)
                 .stream()
                 .map(product -> new ProductDTO(
@@ -50,7 +50,11 @@ public class ProductService {
     }
 
     public Cart fetchCartById(Long cartId) {
-        return cartRepository.getById(cartId);
+        Optional<Cart> exists= Optional.of(cartRepository.findById(cartId)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        String.format("CART OF id %s COULDN'T BE FOUND", cartId)
+                )));
+        return cartRepository.findCartByCartId(cartId);
     }
 
     public List<Cart> fetchAllCarts() {

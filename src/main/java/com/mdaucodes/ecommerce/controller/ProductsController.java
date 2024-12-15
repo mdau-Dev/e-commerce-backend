@@ -45,7 +45,7 @@ public class ProductsController {
     public List<ProductDTO> fetchProductsByDescriptionOrName(
             @PathVariable(value = "description",required = true)String description
     ){
-        return productService.fetchProductsByDescriptionOrName(description);
+        return productService.fetchProductsByDescriptionContains(description);
     }
 
     @GetMapping("/getCart/{id}")

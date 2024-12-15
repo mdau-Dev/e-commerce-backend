@@ -1,5 +1,6 @@
 package com.mdaucodes.ecommerce.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,6 +28,7 @@ public class Product {
     @ManyToMany(
             mappedBy = "productList"
     )
+    @JsonIgnore
     private List<Cart> cartList=new ArrayList<>();
     public Product(String productName, String productCategory,
                    Integer price, String productDescription, Integer productQuantity,
